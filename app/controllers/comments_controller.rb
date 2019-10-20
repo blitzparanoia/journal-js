@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
     @comment = @entry.comments.build
     if @comment.update(comment_params)
       redirect_to entry_path(@entry)
+    end
   end
 
   def destroy
