@@ -10,6 +10,8 @@
   <br>Number of Comments: <%= @entry.comments.count%>
 
 <br><%= link_to "New Comment", new_entry_comment_path(@entry) %>
+<br><%= link_to "All Comments", entry_comments_path(@entry) %>
+
 
 <br><%= link_to "Edit", edit_entry_path(@entry)%>
 <br><%= link_to "Delete", entry_path(@entry), method: :delete, data: { confirm: "Are you sure?" }%>
