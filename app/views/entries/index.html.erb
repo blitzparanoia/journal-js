@@ -1,5 +1,7 @@
 <h1>Blog Index</h1>
 
+<%= link_to "Log Out", logout_path %>
+
 <% @entries.each do |entry| %>
 	<h3>
 		<%= link_to entry.title, entry_path(entry) %>
