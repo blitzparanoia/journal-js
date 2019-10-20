@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
 
   def index
+    @entries = Entry.all.order("created_at DESC")
   end
 
   def new
@@ -24,10 +25,23 @@ class EntriesController < ApplicationController
 
   def update
     set_entry
+    if @entry.update(entry_params)
+      redirect_to @entry
+    else
+      render 'edit'
+    end
+
   end
 
   def show
     set_entry
+  end
+
+  def destroy
+    set_entry
+    @entry.destroy
+
+    redirect_to entries_path
   end
 
   private

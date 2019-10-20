@@ -1,1 +1,10 @@
 <h1>Blog Index</h1>
+
+<% @entries.each do |entry| %>
+	<h3>
+		<%= link_to entry.title, entry_path(entry) %>
+	</h3>
+	<p>
+		<%= entry.content %>
+	</p>
+	<% end %>
