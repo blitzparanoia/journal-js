@@ -7,11 +7,11 @@ $(function(){
 //button event listener on page
 
 function listenForClick() {
-    $('#new-entry').click(function (event) {
+    $('#new-entry').on('click', function (event) {
       // alert('Yay');
-      // event.preventDefault()
+      event.preventDefault()
       let newEntryForm = Entry.newEntryForm()
-      document.querySelector('div#entry-form-div').innerHTML = newEntryForm
+      document.querySelector('div#entry-form').innerHTML = newEntryForm
     })
 }
 //
@@ -35,5 +35,14 @@ class Entry {
     this.comments = e.comments
   }
 
-  
+  static newEntryForm() {
+    return(`
+      <p>New Entry</p>
+      <form>
+        Title: <input id='entry-title' type='text' name='title'></input>
+        <br> Entry Content: <input name='content' type='text'></input>
+        <br> <input type='submit' />
+      </form>
+      `)
+  }
 }
