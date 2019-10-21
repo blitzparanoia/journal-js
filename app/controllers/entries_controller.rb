@@ -2,6 +2,10 @@ class EntriesController < ApplicationController
 
   def index
     @entries = Entry.all.order("created_at DESC")
+    respond_to do |f|
+      f.html { render :index }
+      f.json { render json: @entries }
+    end
   end
 
   def new
@@ -12,7 +16,11 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
 
     if @entry.save
-      redirect_to entries_path
+      respond_to do |f|
+        f.html { redirect_to entries_path }
+        f.json { render json: @entry }
+      end
+
     else
       render 'new'
     end
