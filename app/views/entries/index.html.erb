@@ -2,7 +2,7 @@
 
 <%= link_to "Log Out", logout_path %>
 
-<br><%= link_to "New Entry", new_entry_path %>
+<br><%= link_to "New Entry", new_entry_path , :id => 'new-entry' %>
 
 <% @entries.each do |entry| %>
 	<h3>
