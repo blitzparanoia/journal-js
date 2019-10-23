@@ -2,10 +2,10 @@ class EntriesController < ApplicationController
 
   def index
     @entries = Entry.all.order("created_at DESC")
-    respond_to do |f|
-      f.html { render :index }
-      f.json { render json: @entries }
-    end
+    # respond_to do |f|
+    #   f.html { render :index }
+    #   f.json { render json: @entries }
+    # end
   end
 
   def new
@@ -16,12 +16,10 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
 
     if @entry.save
-      respond_to do |f|
-        f.html { redirect_to entries_path }
-        f.json { render json: @entry }
-      end
-
-    else
+      # respond_to do |f|
+        # f.html { redirect_to entries_path }
+        render json: @entry, status:201
+      else
       render 'new'
     end
 
@@ -43,6 +41,10 @@ class EntriesController < ApplicationController
 
   def show
     set_entry
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @entry}
+    end
   end
 
   def destroy

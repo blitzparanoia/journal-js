@@ -1,18 +1,18 @@
 <h1>Entry Show</h1>
+<h2>Title: <%= @entry.title%></h2>
+<p>Number of Comments: <%= @entry.comments.count%></p>
 
-<h4>
-		<%= @entry.title %>
-	</h4>
-	<p>
-		<%= @entry.content %>
-	</p>
 
-  <br>Number of Comments: <%= @entry.comments.count%>
+<a href="#" class="js-more" data-id="<%=@entry.id%>">Click For Content</a>
+
+<div class="showMore">
+
+</div>
 
 <br><%= link_to "New Comment", new_entry_comment_path(@entry) %>
 <br><%= link_to "All Comments", entry_comments_path(@entry) %>
-<br><%= link_to "New Entry", new_entry_path %>
-
 
 <br><%= link_to "Edit", edit_entry_path(@entry)%>
 <br><%= link_to "Delete", entry_path(@entry), method: :delete, data: { confirm: "Are you sure?" }%>
+
+<br><a href="/entries">Back to Index</a>
