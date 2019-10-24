@@ -27,16 +27,7 @@ $(function() {
   });
 });
 
-$(function() {
-   $(".js-more").on("click", function(event) {
-     event.preventDefault()
-     let $list = $(".showMore");
-     var entryId = parseInt($(".js-more").attr("data-id"));
-     $.get("/entries/" + entryId + ".json", function(data) {
-         $list.append(data["content"])
-     });
-   });
- });
+
 
 
  // $(function () {

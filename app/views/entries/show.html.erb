@@ -9,6 +9,23 @@
 
 </div>
 
+
+<script type="text/javascript" charset="utf-8">
+
+$(function() {
+   $(".js-more").on("click", function(event) {
+     event.preventDefault()
+     let $list = $(".showMore");
+     var entryId = parseInt($(".js-more").attr("data-id"));
+     $.get("/entries/" + entryId + ".json", function(data) {
+         $list.append(data["content"])
+     });
+   });
+ });
+</script>
+
+
+
 <br><%= link_to "New Comment", new_entry_comment_path(@entry) %>
 <br><%= link_to "All Comments", entry_comments_path(@entry) %>
 
