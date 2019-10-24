@@ -2,10 +2,10 @@ class EntriesController < ApplicationController
 
   def index
     @entries = Entry.all.order("created_at DESC")
-    # respond_to do |f|
-    #   f.html { render :index }
-    #   f.json { render json: @entries }
-    # end
+    respond_to do |f|
+      f.html { render :index }
+      f.json { render json: @entries }
+    end
   end
 
   def new

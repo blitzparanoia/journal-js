@@ -1,17 +1,3 @@
-// class Entry {
-//   constructor(e){
-//   this.id = e.id
-//   this.title = e.title
-//   this.content = e.content }
-// }
-//
-//   Entry.prototype.postHTML = function(){
-//     let htmlBlock = return(`
-//       <br><br><br><br>${this.content}
-//       `)
-//        $(".showMore").append(htmlBlock)
-// }
-
 
 $(function() {
   $(".js-list").on("click", function(event) {
@@ -28,20 +14,3 @@ $(function() {
     });
   });
 });
-
-
-
-
- // $(function () {
- //   $('form').submit(function(event) {
- //     event.preventDefault();
- //     var values = $(this).serialize();
- //     var posting = $.post('/entries', values);
- //     posting.done(function(data) {
- //       var entry = data;
- //     var entryTitle = entry["title"];
- //     var entryContent	= entry["content"];
- //     $("#newEntry").text("The entry " + entryTitle + " was created!" + "You wrote the following...     " + entryContent)
- //     });
- //   });
- // });
