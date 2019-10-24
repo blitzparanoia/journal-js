@@ -1,14 +1,16 @@
-class Entry {
-  constructor(e){
-  this.id = e.id
-  this.title = e.title
-  this.content = e.content }
-}
-
-  Entry.prototype.postHTML = function(){
-    let htmlBlock = this.content
-       $(".showMore").append(htmlBlock)
-}
+// class Entry {
+//   constructor(e){
+//   this.id = e.id
+//   this.title = e.title
+//   this.content = e.content }
+// }
+//
+//   Entry.prototype.postHTML = function(){
+//     let htmlBlock = return(`
+//       <br><br><br><br>${this.content}
+//       `)
+//        $(".showMore").append(htmlBlock)
+// }
 
 
 $(function() {
