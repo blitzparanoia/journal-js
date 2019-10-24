@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+before_action :authenticate_user!
   # def create
   # 		@entry = Entry.find(params[:entry_id])
   # 	 	@comment = @entry.comments.create(params[:comment].permit(:comment))
