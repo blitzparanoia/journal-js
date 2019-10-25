@@ -1,25 +1,21 @@
-# README
+# Journal-app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails app with Javascript features for creating open journal entries for personal use and commenting on the entries.
 
-Things you may want to cover:
+### Installation
+1. `cd` into the app directory
+2. Type `bundle install` to install dependencies
+3. Create the database by typing   `rails db:migrate`
+4. Type `rails s` to launch a local server.
+5. Using a web browser visit `http://localhost:3000`
+6. End the server session by pressing `ctrl-c`
 
-* Ruby version
+### Usage
+Create an account or sign in with an exsiting account. Users can create and comment on the entries. Entries can have comments.
+All entries can be viewed by all users. All comments can be viewed by all users.
 
-* System dependencies
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/blitzparanoia/pet-app.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# journal-app
+## License
+The gem is available as open source under the terms of the  [MIT License](https://opensource.org/licenses/MIT).
