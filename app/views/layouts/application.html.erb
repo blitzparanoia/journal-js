@@ -13,6 +13,10 @@
   <body>
     <%= yield %>
 
+    <br>
+   <%= link_to "Log Out", logout_path, method: :delete %> |
+   <%= link_to "Main Page", entries_path %> |
+
 
   </body>
 </html>
