@@ -6,22 +6,22 @@
     <%= csp_meta_tag %>
 
     <script type = "text/javascript" src = "//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js" ></script>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application', 'entries' %>
   </head>
 
   <body>
     <%= yield %>
-
     <br>
-   <%= link_to "Log Out", logout_path, method: :delete %> |
-   <%= link_to "Main Page", entries_path %> |
+      <%= link_to "Log Out", logout_path, method: :delete %> |
+			<%= link_to "Main Page", entries_path %> |
+			<%= link_to "New Entry", new_entry_path, class: 'ajax-new-post' %>
 
-   <br>
+			<br>
 
-     <button id='entries-data'>All Entries</button>
-     <div id='ajax-entries'></div>
-     <br>
-     
+			<button id='entries-data'>All Entries</button>
+			<div id='ajax-entries'></div>
+			<br>
+
   </body>
 </html>

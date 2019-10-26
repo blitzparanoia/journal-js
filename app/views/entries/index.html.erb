@@ -1,12 +1,1 @@
 <h1>Journal Index</h1>
-
-<br><%= link_to "New Entry", new_entry_path %>
-
-<% @entries.each do |entry| %>
-	<h3>
-		<%= link_to entry.title, entry_path(entry) %>
-	</h3>
-	<p>
-		<%= entry.content %>
-	</p>
-	<% end %>

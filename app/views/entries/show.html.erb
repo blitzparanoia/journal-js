@@ -1,38 +1,21 @@
 <h1>Entry Show</h1>
 <h2>Title: <%= @entry.title%></h2>
-<%# <button class='js-more' data-id="<%=@entry.id%>">Click For Content</button>
-
-<div class="showMore">
-
-</div> %>
 
 <p><%= @entry.content%></p>
 
 <p>Number of Comments: <%= @entry.comments.count%></p>
 
 
-<!-- <script type="text/javascript" charset="utf-8">
 
-$(function() {
-   $(".js-more").one("click", function(event) {
-     event.preventDefault();
-     let $list = $(".showMore");
-     var entryId = parseInt($(".js-more").attr("data-id"));
-     $.get("/entries/" + entryId + ".json", function(data) {
-         $list.append(data["content"])
-     });
-   });
- });
-</script> -->
 
-<br><%= link_to "New Comment", new_entry_comment_path(@entry) %>
+<br><%= link_to "New Comment", new_entry_comment_path(@entry), id: "new-comment" %>
+
 
 <br> <button id='comment-data' data-id="<%=@entry.id%>">All Comments</button>
 
 			<div id='ajax-comments'>
 
       </div>
-
 
 <br><%= link_to "Edit Entry", edit_entry_path(@entry)%>
 <br><%= link_to "Delete Entry", entry_path(@entry), method: :delete, data: { confirm: "Are you sure?" }%>

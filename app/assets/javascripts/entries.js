@@ -51,6 +51,7 @@ Entry.prototype.entryHTML = function () {
 	return (`
 		<div class='entry'>
 			<h3><a href="/entries/${this.id}">${this.title}</a></h3>
+      <small>${dateFix}</small>
 			<p>${this.content}</p>
 			<hr>
 		</div>
