@@ -18,11 +18,3 @@ function getComments () {
       });
   });
 };
-
-
-class Comment {
-	constructor(c) {
-		this.id = c.id
-		this.comments = c.comments
-	}
-}
