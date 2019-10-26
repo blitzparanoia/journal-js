@@ -1,17 +1,5 @@
 class CommentsController < ApplicationController
 before_action :authenticate_user!
-  # def create
-  # 		@entry = Entry.find(params[:entry_id])
-  # 	 	@comment = @entry.comments.create(params[:comment].permit(:comment))
-  # 		redirect_to entry_path(@entry)
-  # 	end
-  #
-  # 	def destroy
-  # 		@entry = Entry.find(params[:entry_id])
-  # 		@comment = @entry.comments.find(params[:id])
-  # 		@comment.destroy
-  # 		redirect_to entry_path(@entry)
-  # 	end
 
   def index
     if params[:entry_id]
@@ -57,14 +45,6 @@ end
 			f.json {render json: @comment}
 		end
     end
-
-
-
-
-
-
-
-
 
 private
 		def comment_params
