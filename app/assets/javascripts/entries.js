@@ -32,9 +32,12 @@ function getEntries() {
 		method: 'get',
 		dataType: 'json',
 		success: function (data) {
-			console.log("date output:  ", data)
+			// console.log("date output:  ", data)
+    }
+  })
+  		}
+  
 
-}
 
 class Entry {
 	constructor(obj) {
@@ -44,4 +47,15 @@ class Entry {
 		this.content = obj.content
 		this.comments = obj.comments
 	}
+}
+
+Entry.prototype.entryHTML = function () {
+
+	return (`
+		<div class='entry'>
+			<h3><a href="/entries/${this.id}">${this.title}</a></h3>
+			<p>${this.content}</p>
+			<hr>
+		</div>
+	`)
 }
