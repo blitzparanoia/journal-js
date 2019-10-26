@@ -15,6 +15,27 @@
 //   });
 // });
 
+$(function () {
+	listenForClick()
+});
+
+function listenForClick() {
+	$('button#entries-data').one('click', function (event) {
+		event.preventDefault()
+		getEntries()
+	})
+}
+
+function getEntries() {
+	$.ajax({
+		url: 'http://localhost:3000/entries',
+		method: 'get',
+		dataType: 'json',
+		success: function (data) {
+			console.log("date output:  ", data)
+
+}
+
 class Entry {
 	constructor(obj) {
 		this.id = obj.id
