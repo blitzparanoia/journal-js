@@ -1,20 +1,3 @@
-//
-// $(function() {
-//   $(".js-list").on("click", function(event) {
-//     event.preventDefault()
-//     let $list = $("#entryShow");
-//     var entryId = parseInt($(".js-list").attr("data-id"));
-//     $.get("/entries/" + entryId + ".json",
-//     function(data) {
-//       $list.htmlBlock('')
-//       data.entries(function(entry){
-//        displayEntry = new Entry(entry)
-//          displayEntry.htmlBlock()
-//       })
-//     });
-//   });
-// });
-
 $(function () {
 	listenForClick()
 });
@@ -47,7 +30,7 @@ function getEntries() {
 class Entry {
 	constructor(obj) {
 		this.id = obj.id
-		// this.created_at = obj.created_at
+		this.created_at = obj.created_at
 		this.title = obj.title
 		this.content = obj.content
 		this.comments = obj.comments
@@ -55,7 +38,16 @@ class Entry {
 }
 
 Entry.prototype.entryHTML = function () {
+  // let entryComments = this.comments.map(comment => {
+	// 	return (`
+	// 		<ul>
+	// 		<li> ${comment.content} </li>
+	// 		</ul>
+	//
+	// 	`)
+	// }).join('')
 
+	let dateFix = this.created_at.slice(0, 10)
 	return (`
 		<div class='entry'>
 			<h3><a href="/entries/${this.id}">${this.title}</a></h3>
