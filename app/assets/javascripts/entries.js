@@ -33,10 +33,15 @@ function getEntries() {
 		dataType: 'json',
 		success: function (data) {
 			// console.log("date output:  ", data)
-    }
+      data.map(entry => {
+				const newEntry = new Entry(entry)
+				const newEntryHtml = newEntry.entryHTML()
+				document.getElementById('ajax-entries').innerHTML += newEntryHtml
+    })
+  }
   })
   		}
-  
+
 
 
 class Entry {
