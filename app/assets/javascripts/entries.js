@@ -1,5 +1,6 @@
 $(function () {
 	listenForClick()
+	listForSort()
 });
 
 function listenForClick() {
@@ -8,6 +9,42 @@ function listenForClick() {
 		getEntries()
 	})
 }
+
+function listForSort() {
+	$('button#sort-data').on('click', function (e) {
+		e.preventDefault()
+		// console.log('Heyy')
+		getSort()
+	})
+}
+
+function getSort() {
+	$.ajax({
+		url: 'http://localhost:3000/entries',
+		method: 'get',
+		dataType: 'json',
+		success: function (data){
+			// console.log("data: ", data)
+			data.sort(function(a, b) {
+			  var nameA = a.title.toUpperCase(); // ignore upper and lowercase
+			  var nameB = b.title.toUpperCase(); // ignore upper and lowercase
+			  if (nameA < nameB) {
+			    return -1;
+			  }
+			  if (nameA > nameB) {
+			    return 1;
+			  }
+
+			  // names must be equal
+			  return 0;
+			});
+			console.log(data)
+		}
+
+	})
+}
+
+
 
 function getEntries() {
 	$.ajax({
@@ -38,14 +75,14 @@ class Entry {
 }
 
 Entry.prototype.entryHTML = function () {
-  // let entryComments = this.comments.map(comment => {
-	// 	return (`
-	// 		<ul>
-	// 		<li> ${comment.content} </li>
-	// 		</ul>
-	//
-	// 	`)
-	// }).join('')
+  let entryComments = this.comments.map(comment => {
+		return (`
+			<ul>
+			<li> ${comment.content} </li>
+			</ul>
+
+		`)
+	}).join('')
 
 	let dateFix = this.created_at.slice(0, 10)
 	return (`
@@ -53,6 +90,7 @@ Entry.prototype.entryHTML = function () {
 			<h3><a href="/entries/${this.id}">${this.title}</a></h3>
       <small>${dateFix}</small>
 			<p>${this.content}</p>
+			<p>${entryComments}</p>
 			<hr>
 		</div>
 	`)
